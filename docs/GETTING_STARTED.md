@@ -23,7 +23,7 @@ This section provides single commands to install dependencies, clone the reposit
 If you are on Windows, ensure you have WSL installed (run `wsl --install -n` and wait for it to finish). Then open **PowerShell** and run this single command:
 
 ```powershell
-wsl ~ -e bash -c "curl -sSL https://raw.githubusercontent.com/Fundacion-Fulgor/EAMTA2026-VLSI/develop/setup.sh -o /tmp/setup.sh && chmod +x /tmp/setup.sh && /tmp/setup.sh --auto"
+wsl ~ -e bash -c "curl -sSL https://raw.githubusercontent.com/Fundacion-Fulgor/EAMTA2026-VLSI/develop/setup.sh -o /tmp/setup.sh && chmod +x /tmp/setup.sh && /tmp/setup.sh"
 ```
 
 #### Linux (Terminal)
@@ -31,7 +31,7 @@ wsl ~ -e bash -c "curl -sSL https://raw.githubusercontent.com/Fundacion-Fulgor/E
 If you are already on a Linux system, open your terminal and run:
 
 ```bash
-cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git; } && cd EAMTA2026-VLSI && ./setup.sh --auto
+cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git; } && cd EAMTA2026-VLSI && ./setup.sh
 ```
 
 ### 2. Set Up GitHub SSH Keys (Required)

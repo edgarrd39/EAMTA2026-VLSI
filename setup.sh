@@ -6,10 +6,6 @@ if [ -d "/foss/pdks" ]; then
     err "You seem to be already inside the design environment! This setup script is not needed. You can safely run 'xschem &' to start the schematic editor. Exiting..."
 fi
 
-AUTO_ARG=""
-if [ "$1" == "--auto" ]; then
-    AUTO_ARG="--auto"
-fi
 
 install_packages() {
     msg "Checking for podman package..."
@@ -87,7 +83,7 @@ if [ "$EUID" -eq 0 ]; then
     fi
     
     msg "Switching to user 'eamtastudent' to continue setup..."
-    exec su - eamtastudent -c "\"$SCRIPT_PATH\" $AUTO_ARG"
+    exec su - eamtastudent -c "\"$SCRIPT_PATH\""
 fi
 
 SETUP_FLAG=~/.osic_setup_done
@@ -102,10 +98,6 @@ fi
 # We write the payload to a local shell script in the home directory
 # to avoid quoting and nested evaluation issues when distrobox parses arguments.
 cat << 'EOF' > ~/.iic_osic_setup.sh
-AUTO_MODE=0
-if [ "$1" == "--auto" ]; then
-    AUTO_MODE=1
-fi
 
 msg() {  echo -e "\n\e[1;32m[INFO]\e[0m $1"; }
 
@@ -138,12 +130,7 @@ SETUP_FLAG=~/.osic_setup_done
 if [ ! -f "$SETUP_FLAG" ]; then
     # Check if SSH key already exists
     if [ ! -f ~/.ssh/id_ed25519 ]; then
-        if [ "$AUTO_MODE" = "1" ]; then
-            USER_EMAIL="${USER:-student}@${HOSTNAME:-eamta2026}"
-        else
-            # Ask user for email
-            read -p "Enter your email for SSH key: " USER_EMAIL
-        fi
+        USER_EMAIL="${USER:-student}@${HOSTNAME:-eamta2026}"
         ssh-keygen -t ed25519 -C "$USER_EMAIL" -N "" -f ~/.ssh/id_ed25519
     fi
 
@@ -199,4 +186,4 @@ rm -f ~/.iic_osic_setup.sh
 exec bash
 EOF
 
-exec distrobox enter iic-osic-tools2 -- bash ~/.iic_osic_setup.sh $AUTO_ARG
+exec distrobox enter iic-osic-tools2 -- bash ~/.iic_osic_setup.sh
