@@ -1,20 +1,18 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N -50 -109 -50 -79 {lab=avdd1p8}
 N 100 -109 100 -79 {lab=avdd1p8}
-N 170 -30 200 -30 {lab=#net1}
-N 100 20 100 50 {lab=avss1p8}
-N -50 20 -50 50 {lab=avss1p8}
+N 170 -30 220 -30 {lab=#net1}
 N -120 -30 -90 -30 {lab=vin}
-N 20 -30 60 -30 {lab=vout}
+N 40 -30 60 -30 {lab=vout}
 N 40 -50 40 -30 {lab=vout}
 N -70 50 -50 50 {lab=avss1p8}
 N -50 50 100 50 {lab=avss1p8}
-N 200 -30 220 -30 {lab=#net1}
 N 220 -30 220 -20 {lab=#net1}
 N 220 40 220 50 {lab=avss1p8}
 N 100 50 220 50 {lab=avss1p8}
@@ -24,8 +22,9 @@ N 220 -190 220 -160 {lab=avss1p8}
 N 220 -100 220 -70 {lab=GND}
 N 410 -190 410 -160 {lab=vin}
 N 410 -100 410 -70 {lab=avss1p8}
-N 100 19 100 20 {lab=avss1p8}
-N -50 19 -50 20 {lab=avss1p8}
+N 100 19 100 50 {lab=avss1p8}
+N -50 19 -50 50 {lab=avss1p8}
+N 20 -30 40 -30 {lab=vout}
 C {blocks/inverter/schematic/inverter.sym} -50 -30 0 0 {name=x1}
 C {blocks/inverter/schematic/inverter.sym} 100 -30 0 0 {name=x2}
 C {capa.sym} 220 10 0 0 {name=C1
@@ -39,21 +38,21 @@ C {vsource.sym} 410 -130 0 0 {name=V6 value="PULSE(\{vdd\} 0 0.0 1p 1p \{Tclk/4\
 C {netlist_not_shown.sym} -60 -250 0 0 {name=SIMULATION only_toplevel=false
 value="
 * Circuit Parameters
-.param vdd = 1.8
+.param vdd = 1.2
 .param vss = 0.0
 .param Tclk = 10n
-.options TEMP = 65.0
-* Include Models
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice TT
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib cornerMOSlv.lib mos_tt
 * OP Parameters & Singals to save
 .save all
 *Simulations
 .control
 tran 0.01u 100n
 setplot tran1
-plot v(vin) v(vout)+2
+plot v(vin) v(vout)+1.2
 reset
-dc V6 0 1.8 0.01
+dc V6 0 1.2 0.01
 setplot dc
 plot vin vout ylabel vout xlabel vin
 set filetype = ascii

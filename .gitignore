@@ -24,10 +24,17 @@ xschemrc_backup
 # KLayout temporary files
 *.lym
 *.lyp.bak
+*.lyrdb
 
 # CACE outputs
 *.run/
 cace_summary.txt
+simulation/
+
+# Magic VLSI temporary/extraction files
+*.ext
+*.sim
+*.nodes
 
 # Python
 __pycache__/

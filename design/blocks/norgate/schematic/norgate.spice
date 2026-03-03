@@ -1,19 +1,10 @@
-* NGSPICE file created from norgate.ext - technology: sky130A
+* NGSPICE netlist for norgate - IHP SG13G2 PDK
+* Generated from norgate.sch
+* Implements NOR gate
 
-.subckt sky130_fd_pr__pfet_01v8_MDJ67A a_15_n150# a_n15_n176# a_n73_n150# w_n109_n212#
-X0 a_15_n150# a_n15_n176# a_n73_n150# w_n109_n212# sky130_fd_pr__pfet_01v8 ad=0.435 pd=3.58 as=0.435 ps=3.58 w=1.5 l=0.15
-.ends
-
-.subckt sky130_fd_pr__nfet_01v8_KRUHEH a_15_n75# a_n15_n101# a_n73_n75# VSUBS
-X0 a_15_n75# a_n15_n101# a_n73_n75# VSUBS sky130_fd_pr__nfet_01v8 ad=0.2175 pd=2.08 as=0.2175 ps=2.08 w=0.75 l=0.15
-.ends
-
-.ckt norgate
-Xsky130_fd_pr__pfet_01v8_MDJ67A_1 m1_303_886# a_in vdd vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_2 m1_215_245# b_in m1_303_886# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_3 m1_303_886# b_in m1_215_245# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__nfet_01v8_KRUHEH_0 vss a_in m1_215_245# vss sky130_fd_pr__nfet_01v8_KRUHEH
-Xsky130_fd_pr__nfet_01v8_KRUHEH_1 m1_215_245# b_in vss vss sky130_fd_pr__nfet_01v8_KRUHEH
-Xsky130_fd_pr__pfet_01v8_MDJ67A_0 vdd a_in m1_303_886# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-.end
-
+.subckt norgate vdd a_in b_in vss out
+XM1 out b_in vdd vdd sg13_lv_pmos w=4.0u l=0.13u ng=1 m=1
+XM4 out a_in vdd vdd sg13_lv_pmos w=4.0u l=0.13u ng=1 m=1
+XM2 out a_in vss vss sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1
+XM3 out b_in vss vss sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1
+.ends norgate

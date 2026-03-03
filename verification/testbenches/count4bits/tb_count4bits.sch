@@ -14,21 +14,21 @@ C {blocks/count4bits/schematic/count4bits.sym} 0 0 0 0 {name=x1}
 C {netlist_not_shown.sym} -275 -50 0 0 {name=SIMULATION only_toplevel=false
 value="
 * Circuit Parameters
-.param vdd = 1.8
+.param vdd = 1.2
 .param vss = 0.0
 .param Tclk = 10n
-.options TEMP = 65.0
-* Include Models
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice TT
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib $PDK_ROOT/sg13g2/libs.tech/ngspice/models/sg13_lv_models.lib typical
 * OP Parameters & Singals to save
 .save all
 *Simulations
 .control
 tran 0.01u 100n
 setplot tran1
-plot v(clk_sig) v(0b)+2 v(1b)+4 v(2b)+6 v(3b)+8
+plot v(clk_sig) v(0b)+1.2 v(1b)+2.4 v(2b)+3.6 v(3b)+4.8
 reset
-dc V6 0 1.8 0.01
+dc V6 0 1.2 0.01
 setplot dc
 set filetype = ascii
 write dcsweep.raw

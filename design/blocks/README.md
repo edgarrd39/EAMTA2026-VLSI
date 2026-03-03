@@ -35,21 +35,31 @@ See [docs/GROUP_ASSIGNMENTS.md](../../docs/GROUP_ASSIGNMENTS.md) for current ass
 
 ## Blocks Overview
 
-The 4-bit counter is composed of:
+The 4-bit counter is composed of the following blocks, organized by hierarchy level:
 
-1. **Basic Gates**
-   - AND2 - 2-input AND gate
-   - XOR2 - 2-input XOR gate
-   - INV - Inverter
+### Level 1 — Basic Gates
+| Block | Directory | Description |
+|-------|-----------|-------------|
+| INV | `inverter/` | CMOS Inverter |
+| AND2 | `andgate/` | 2-input AND gate |
+| XOR2 | `xorgate/` | 2-input XOR gate |
+| NOR2 | `norgate/` | 2-input NOR gate (used internally by DFF) |
+| TG | `transmissiongate/` | Transmission gate (used internally by DFF) |
 
-2. **Sequential Element**
-   - DFF - D Flip-Flop with reset
+### Level 2 — Sequential Element
+| Block | Directory | Description |
+|-------|-----------|-------------|
+| DFF | `dff/` | Positive edge-triggered D Flip-Flop with synchronous reset |
 
-3. **Counter Building Block**
-   - Counter Stage - Single-bit counter stage
+### Level 3 — Counter Building Block
+| Block | Directory | Description |
+|-------|-----------|-------------|
+| Counter Stage | `count1bit/` | Single-bit counter stage (D = Q⊕EN, CO = Q·EN) |
 
-4. **Top-Level**
-   - 4-bit Counter - Complete counter implementation
+### Level 4 — Top-Level
+| Block | Directory | Description |
+|-------|-----------|-------------|
+| 4-bit Counter | `count4bits/` | 4-bit synchronous binary counter |
 
 ## Design Guidelines
 

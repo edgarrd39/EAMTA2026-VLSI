@@ -1,33 +1,20 @@
-* NGSPICE file created from xorgate.ext - technology: sky130A
+* NGSPICE netlist for xorgate - IHP SG13G2 PDK
+* Generated from xorgate.sch
 
-.subckt sky130_fd_pr__pfet_01v8_MDJ67A a_15_n150# a_n15_n176# a_n73_n150# w_n109_n212#
-X0 a_15_n150# a_n15_n176# a_n73_n150# w_n109_n212# sky130_fd_pr__pfet_01v8 ad=0.435 pd=3.58 as=0.435 ps=3.58 w=1.5 l=0.15
-.ends
-
-.subckt sky130_fd_pr__nfet_01v8_VKD229 a_15_n150# a_n15_n176# a_n73_n150# VSUBS
-X0 a_15_n150# a_n15_n176# a_n73_n150# VSUBS sky130_fd_pr__nfet_01v8 ad=0.435 pd=3.58 as=0.435 ps=3.58 w=1.5 l=0.15
-.ends
-
-.subckt sky130_fd_pr__nfet_01v8_KRUHEH a_15_n75# a_n15_n101# a_n73_n75# VSUBS
-X0 a_15_n75# a_n15_n101# a_n73_n75# VSUBS sky130_fd_pr__nfet_01v8 ad=0.2175 pd=2.08 as=0.2175 ps=2.08 w=0.75 l=0.15
-.ends
-
-.ckt xorgate
-Xsky130_fd_pr__pfet_01v8_MDJ67A_1 out a_in m1_375_860# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_2 m1_375_860# b_in out vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_3 vdd a_509_405# m1_375_860# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_5 vdd b_in a_597_60# vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__pfet_01v8_MDJ67A_4 a_509_405# a_in vdd vdd sky130_fd_pr__pfet_01v8_MDJ67A
-Xsky130_fd_pr__nfet_01v8_VKD229_0 sky130_fd_pr__nfet_01v8_VKD229_0/a_15_n150# a_509_405#
-+ out vss sky130_fd_pr__nfet_01v8_VKD229
-Xsky130_fd_pr__nfet_01v8_VKD229_1 sky130_fd_pr__nfet_01v8_VKD229_1/a_15_n150# b_in
-+ vss vss sky130_fd_pr__nfet_01v8_VKD229
-Xsky130_fd_pr__nfet_01v8_VKD229_2 out a_in sky130_fd_pr__nfet_01v8_VKD229_1/a_15_n150#
-+ vss sky130_fd_pr__nfet_01v8_VKD229
-Xsky130_fd_pr__nfet_01v8_VKD229_3 vss a_597_60# sky130_fd_pr__nfet_01v8_VKD229_0/a_15_n150#
-+ vss sky130_fd_pr__nfet_01v8_VKD229
-Xsky130_fd_pr__nfet_01v8_KRUHEH_0 a_509_405# a_in vss vss sky130_fd_pr__nfet_01v8_KRUHEH
-Xsky130_fd_pr__nfet_01v8_KRUHEH_1 vss b_in a_597_60# vss sky130_fd_pr__nfet_01v8_KRUHEH
-Xsky130_fd_pr__pfet_01v8_MDJ67A_0 m1_375_860# a_597_60# vdd vdd sky130_fd_pr__pfet_01v8_MDJ67A
-.end
-
+.subckt xorgate vdd vss a_in b_in out
+* Complementary stage
+XM0 a_bis a_in vdd vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM4 a_bis a_in vss vss sg13_lv_nmos w=2.0u l=0.13u ng=1 m=1
+* XOR logic (CMOS style)
+XM1 net1 b_bis vdd vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM2 net1 a_in vdd vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM3 out b_in net1 vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM5 net2 a_bis vss vss sg13_lv_nmos w=2.0u l=0.13u ng=1 m=1
+XM6 net2 b_bis vss vss sg13_lv_nmos w=2.0u l=0.13u ng=1 m=1
+XM7 out b_in net2 vss sg13_lv_nmos w=2.0u l=0.13u ng=1 m=1
+* Buffer inverter stage
+XM8 b_bis b_in vdd vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM9 out_inv out vdd vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
+XM10 b_bis b_in vss vss sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1
+XM11 out_inv out vss vss sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1
+.ends xorgate
