@@ -24,7 +24,7 @@ N 80 -50 90 -50 {lab=vdd}
 N -50 -50 -50 0 {lab=in}
 N -0 -20 0 0 {lab=out}
 C {sg13g2_pr/sg13_lv_nmos.sym} -20 50 0 0 {name=M1
-w=1.0u
+w=0.39u
 l=0.13u
 ng=1
 m=1
@@ -32,7 +32,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -20 -50 0 0 {name=M2
-w=2.0u
+w=1.17u
 l=0.13u
 ng=1
 m=1
