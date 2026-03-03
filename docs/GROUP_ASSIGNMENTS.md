@@ -6,13 +6,13 @@ This document tracks the assignment of counter blocks to student groups.
 
 The 4-bit counter is divided into the following blocks for group assignment:
 
-| Block ID | Block Name | Description | Complexity |
-|----------|------------|-------------|------------|
-| B1 | DFF | D Flip-Flop with reset | Medium |
-| B2 | AND2 | 2-input AND gate | Low |
-| B3 | XOR2 | 2-input XOR gate | Low |
-| B4 | Counter Stage | Single-bit counter stage | Medium |
-| B5 | Top-Level Counter | 4-bit counter integration | High |
+| Block ID | Block Name | Directory | Description | Complexity |
+|----------|------------|-----------|-------------|------------|
+| B1 | DFF | `dff/` | D Flip-Flop with synchronous reset | Medium |
+| B2 | AND2 | `andgate/` | 2-input AND gate | Low |
+| B3 | XOR2 | `xorgate/` | 2-input XOR gate | Low |
+| B4 | Counter Stage | `count1bit/` | Single-bit counter stage | Medium |
+| B5 | Top-Level Counter | `count4bits/` | 4-bit counter integration | High |
 
 ## Assignment Process
 

@@ -1,8 +1,8 @@
-# D Flip-Flop with Dual Clock (DFF2C)
+# D Flip-Flop (DFF)
 
 ## Description
 
-Positive edge-triggered D flip-flop with complementary clocks and synchronous clear. Uses master-slave topology with transmission gates.
+Positive edge-triggered D flip-flop with synchronous reset. Implemented as a master-slave topology using transmission gates. Uses `norgate`, `transmissiongate`, and `inverter` as building blocks.
 
 ## Specifications
 
@@ -10,7 +10,6 @@ Positive edge-triggered D flip-flop with complementary clocks and synchronous cl
 - **Setup time**: < 100ps
 - **Hold time**: < 100ps
 - **Clock-to-Q delay**: < 500ps
-- **Max clock frequency**: > 10 MHz
 
 See [DESIGN_SPECIFICATIONS.md](../../../docs/DESIGN_SPECIFICATIONS.md) for complete specifications.
 
@@ -21,22 +20,21 @@ See [DESIGN_SPECIFICATIONS.md](../../../docs/DESIGN_SPECIFICATIONS.md) for compl
 | `vdd` | input | Power supply (1.2V) |
 | `vss` | input | Ground (0V) |
 | `D` | input | Data input |
-| `CLK1` | input | Clock input (positive edge triggered) |
+| `CLK` | input | Clock input (positive edge triggered) |
 | `CLR` | input | Synchronous clear (active high) |
 | `Q` | output | Data output |
-| `Qb` | output | Complementary data output |
 
 ## Design Approach
 
-Master-slave flip-flop using transmission gates, NOR gates, and inverters (SG13G2 LV transistors)
+Transmission gate master-slave flip-flop (SG13G2 LV transistors)
 
 ## Files
 
-- `schematic/dff2c.sch` - xschem schematic (IHP SG13G2 PDK)
-- `schematic/dff2c.sym` - xschem symbol
-- `char/dff2c.yaml` - CACE characterization configuration
+- `schematic/dff.sch` - xschem schematic (IHP SG13G2 PDK)
+- `schematic/dff.sym` - xschem symbol
+- `char/dff.yaml` - CACE characterization configuration
 - `char/results/` - Characterization results directory
-- `layout/dff2c.gds` - KLayout layout (to be created)
+- `layout/dff.gds` - KLayout layout (to be created)
 
 ## Simulation Results
 
@@ -74,7 +72,7 @@ Run CACE characterization from the `char/` directory:
 
 ```bash
 cd char/
-cace dff2c.yaml
+cace dff.yaml
 ```
 
 ## Issues and Notes

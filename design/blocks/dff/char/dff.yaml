@@ -1,11 +1,11 @@
 #--------------------------------------------------------------
 # CACE circuit characterization file
-# Block: count1bit_2c (1-bit counter stage, 2-complement)
+# Block: dff (D Flip-Flop)
 # PDK: IHP SG13G2
 #--------------------------------------------------------------
 
-name:           count1bit_2c
-description:    1-bit counter stage (2-complement) using IHP SG13G2 130nm PDK
+name:           dff
+description:    D Flip-Flop with synchronous reset using IHP SG13G2 130nm PDK
 PDK:            sg13g2
 
 cace_format:    5.2
@@ -34,24 +34,20 @@ pins:
     description: Ground
     type: ground
     direction: inout
+  D:
+    description: Data input
+    type: signal
+    direction: input
   CLK:
-    description: Clock input
+    description: Clock input (positive edge triggered)
     type: signal
     direction: input
-  RST:
-    description: Active-high synchronous reset
-    type: signal
-    direction: input
-  EN:
-    description: Enable / carry input from previous stage
+  CLR:
+    description: Synchronous clear (active high)
     type: signal
     direction: input
   Q:
-    description: Counter output bit
-    type: signal
-    direction: output
-  CO:
-    description: Carry out to next stage
+    description: Data output
     type: signal
     direction: output
 
@@ -74,9 +70,9 @@ default_conditions:
     typical: tt
 
 parameters:
-  tpd:
-    description: Propagation delay (CLK to Q)
-    display: tpd
+  tsu:
+    description: Setup time (D to CLK)
+    display: tsu
     unit: s
     spec:
       minimum:
@@ -84,7 +80,7 @@ parameters:
       typical:
         value: any
       maximum:
-        value: 500e-12
+        value: 100e-12
     conditions:
       vdd:
         typical: 1.2
@@ -95,17 +91,38 @@ parameters:
         typical: 27
         maximum: 125
 
-  max_freq:
-    description: Maximum operating frequency
-    display: fmax
-    unit: Hz
+  th:
+    description: Hold time (D after CLK)
+    display: th
+    unit: s
     spec:
       minimum:
-        value: 10e6
+        value: any
       typical:
         value: any
       maximum:
+        value: 100e-12
+    conditions:
+      vdd:
+        typical: 1.2
+      corner:
+        enumerate: [ss, tt, ff]
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 125
+
+  tclk2q:
+    description: Clock to Q propagation delay
+    display: tclk2q
+    unit: s
+    spec:
+      minimum:
         value: any
+      typical:
+        value: any
+      maximum:
+        value: 500e-12
     conditions:
       vdd:
         typical: 1.2

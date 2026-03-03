@@ -59,7 +59,7 @@ N -90 -60 -10 -60 {lab=CLK}
 N -100 -30 -80 -30 {lab=#net1}
 N -190 80 -170 80 {lab=vdd}
 N -300 -140 -280 -140 {lab=Dn}
-C {blocks/dffc/schematic/dffc.sym} 10 50 0 0 {name=x1}
+C {blocks/dff/schematic/dff.sym} 10 50 0 0 {name=x1}
 C {blocks/xorgate/schematic/xorgate.sym} -210 -30 0 0 {name=x2}
 C {blocks/andgate/schematic/andgate.sym} -210 170 0 0 {name=x3}
 C {lab_wire.sym} -190 60 0 1 {name=p7 sig_type=std_logic lab=vss
