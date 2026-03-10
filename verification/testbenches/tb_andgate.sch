@@ -32,7 +32,7 @@ N 90 -10 100 -10 {lab=vout}
 N -100 30 -100 40 {lab=b}
 C {vsource.sym} 290 -220 0 0 {name=V4 value=DC\{vss\} savecurrent=false}
 C {vsource.sym} 390 -220 0 0 {name=V5 value=DC\{vdd\} savecurrent=false}
-C {vsource.sym} 480 -220 0 0 {name=V6 value="PULSE(\{vdd\} 0 0.0 1p 1p \{Tclk/4\} \{Tclk/2\}) DC 0 AC 0" savecurrent=false}
+C {vsource.sym} 480 -220 0 0 {name=V6 value="PULSE(\{vdd\} 0 0.0 10p 10p \{Tclk/4\} \{Tclk/2\}) DC 0 AC 0" savecurrent=false}
 C {lab_wire.sym} 390 -280 0 0 {name=p6 sig_type=std_logic lab=avdd1p8
 }
 C {lab_wire.sym} 290 -280 0 0 {name=p7 sig_type=std_logic lab=avss1p8
@@ -80,7 +80,7 @@ C {lab_wire.sym} -150 40 0 0 {name=p11 sig_type=std_logic lab=b}
 C {lab_wire.sym} 190 0 0 0 {name=p12 sig_type=std_logic lab=vout}
 C {capa.sym} 320 50 0 0 {name=C1
 m=1
-value=1p
+value=50f
 footprint=1206
 device="ceramic capacitor"}
 C {blocks/inverter/schematic/inverter.sym} 190 20 0 0 {name=x2}
