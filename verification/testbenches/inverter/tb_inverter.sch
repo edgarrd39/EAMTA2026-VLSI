@@ -5,9 +5,8 @@ V {}
 S {}
 F {}
 E {}
-N -50 -109 -50 -79 {lab=avdd1p8}
-N 100 -109 100 -79 {lab=avdd1p8}
-N 170 -30 220 -30 {lab=#net1}
+N -50 -80 -50 -79 {lab=avdd1p8}
+N 100 -80 100 -79 {lab=avdd1p8}
 N -120 -30 -90 -30 {lab=vin}
 N 40 -30 60 -30 {lab=vout}
 N 40 -50 40 -30 {lab=vout}
@@ -22,11 +21,20 @@ N 220 -190 220 -160 {lab=avss1p8}
 N 220 -100 220 -70 {lab=GND}
 N 410 -190 410 -160 {lab=vin}
 N 410 -100 410 -70 {lab=avss1p8}
-N 100 19 100 50 {lab=avss1p8}
-N -50 19 -50 50 {lab=avss1p8}
-N 20 -30 40 -30 {lab=vout}
-C {blocks/inverter/schematic/inverter.sym} -50 -30 0 0 {name=x1}
-C {blocks/inverter/schematic/inverter.sym} 100 -30 0 0 {name=x2}
+N 100 20 100 50 {lab=avss1p8}
+N -50 20 -50 50 {lab=avss1p8}
+N -50 -80 -40 -60 {lab=avdd1p8}
+N -50 -109 -50 -80 {lab=avdd1p8}
+N -50 20 -40 0 {lab=avss1p8}
+N -50 19 -50 20 {lab=avss1p8}
+N 10 -30 40 -30 {lab=vout}
+N 100 20 110 0 {lab=avss1p8}
+N 100 19 100 20 {lab=avss1p8}
+N 100 -80 110 -60 {lab=avdd1p8}
+N 100 -109 100 -80 {lab=avdd1p8}
+N 160 -30 220 -30 {lab=#net1}
+C {blocks/inverter/schematic/inverter.sym} -90 -10 0 0 {name=x1}
+C {blocks/inverter/schematic/inverter.sym} 60 -10 0 0 {name=x2}
 C {capa.sym} 220 10 0 0 {name=C1
 m=1
 value=1p
