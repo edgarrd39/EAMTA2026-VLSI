@@ -1,0 +1,110 @@
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/verification/testbenches/dff/tb_dff.sch
+**.subckt tb_dff
+x1 vout net1 d avss1p8 clk clear avdd1p8 dff
+C1 vout avss1p8 100f
+V4 avss1p8 GND DC{vss}
+V6 d avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tffd/4} {Tffd/2}) DC 0 AC 0
+V10 clk avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
+V5 avdd1p8 avss1p8 DC{vdd}
+C2 net1 avss1p8 100f
+V1 clear avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclear/4} {Tclear/2}) DC 0 AC 0
+**** begin user architecture code
+
+
+* Circuit Parameters
+.param vdd = 1.2
+.param vss = 0.0
+.param Tclk = 10n
+.param Tffd = 85n
+.param Tclear = 10u
+.options TEMP = 27.0
+* Include Models - IHP SG13G2
+.lib cornerMOSlv.lib mos_tt
+* OP Parameters & Singals to save
+.save all
+*Simulations
+.control
+tran 0.01u 100n
+setplot tran1
+plot v(d) v(clk)+1.2 v(vout)+2.4
+reset
+dc V6 0 1.2 0.01
+setplot dc
+plot vin vout ylabel vout xlabel vin
+set filetype = ascii
+write dcsweep.raw
+.endc
+.end
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  blocks/dff/schematic/dff.sym # of pins=7
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/dff/schematic/dff.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/dff/schematic/dff.sch
+.subckt dff q qb d vss clk clr vdd
+*.iopin d
+*.iopin clk
+*.iopin clr
+*.iopin q
+*.iopin qb
+*.iopin vdd
+*.iopin vss
+x1 clk vss net1 d vdd clkb transmissiongate
+x2 vdd clr net2 net3 vss nor
+x3 vdd clkb clk vss inverter
+x4 clk vss net3 net1 vdd clkb transmissiongate
+x5 clk vss net4 net2 vdd clkb transmissiongate
+x6 clk vss qb net4 vdd clkb transmissiongate
+x7 vdd net4 clr q vss nor
+x8 vss net2 net1 vss inverter
+x9 vdd qb q vss inverter
+.ends
+
+
+* expanding   symbol:  blocks/transmissiongate/schematic/transmissiongate.sym # of pins=6
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/transmissiongate/schematic/transmissiongate.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/transmissiongate/schematic/transmissiongate.sch
+.subckt transmissiongate clk vss out d vdd clkb
+*.iopin out
+*.iopin d
+*.iopin clkb
+*.iopin clk
+*.iopin vdd
+*.iopin vss
+XM1 out clkb d vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM0 d clk out vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/norgate/schematic/nor.sym # of pins=5
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sch
+.subckt nor vdd a b out vss
+*.iopin vdd
+*.iopin a
+*.iopin vss
+*.iopin out
+*.iopin b
+XM1 net1 a vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+XM2 out b vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM3 out a vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM4 out b net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/inverter/schematic/inverter.sym # of pins=4
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sch
+.subckt inverter vdd out in vss
+*.iopin vdd
+*.iopin out
+*.iopin vss
+*.iopin in
+XM1 out in vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM2 out in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+.ends
+
+.GLOBAL GND
+.end
