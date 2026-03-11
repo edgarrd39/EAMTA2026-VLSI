@@ -47,7 +47,7 @@ value="
 .param vss = 0.0
 .param Tclk = 10n
 .param Tffd = 85n
-.param Tclear = 10u
+.param Tclear = 200n
 .options TEMP = 27.0
 * Include Models - IHP SG13G2
 .lib cornerMOSlv.lib mos_tt
@@ -55,9 +55,9 @@ value="
 .save all
 *Simulations
 .control
-tran 0.01u 100n
+tran 0.01u 300n
 setplot tran1
-plot v(d) v(clk)+1.2 v(vout)+2.4 
+plot v(d) v(clk)+1.2 v(clear)+2.4 v(vout)+3.6
 reset
 dc V6 0 1.2 0.01
 setplot dc

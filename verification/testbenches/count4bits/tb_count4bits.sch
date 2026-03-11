@@ -11,7 +11,6 @@ N 185 -60 185 -30 {lab=avss1p8}
 N 185 30 185 60 {lab=GND}
 N 375 -60 375 -30 {lab=clk_sig}
 N 375 30 375 60 {lab=avss1p8}
-C {top/schematic/count4bits.sym} 0 0 0 0 {name=x1}
 C {netlist_not_shown.sym} -275 -50 0 0 {name=SIMULATION only_toplevel=false
 value="
 * Circuit Parameters
@@ -63,6 +62,8 @@ C {lab_wire.sym} 45 -60 0 0 {name=p11 sig_type=std_logic lab=3b
 }
 C {lab_wire.sym} -80 0 2 1 {name=p12 sig_type=std_logic lab=avdd1p8
 }
-C {lab_wire.sym} -30 60 2 1 {name=p13 sig_type=std_logic lab=clk_sig}
+C {lab_wire.sym} -120 140 2 1 {name=p13 sig_type=std_logic lab=clk
+}
 C {lab_wire.sym} 30 60 2 0 {name=p14 sig_type=std_logic lab=avss1p8
 }
+C {blocks/counter4b/schematic/counter4b.sym} 80 100 0 0 {name=x1}
