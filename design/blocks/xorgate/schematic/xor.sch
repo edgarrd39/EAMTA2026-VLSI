@@ -65,7 +65,7 @@ N 60 200 80 200 {lab=vss}
 N 80 120 80 200 {lab=vss}
 C {sg13g2_pr/sg13_lv_pmos.sym} -70 -40 0 0 {name=M1
 l=0.15u
-w=0.75u
+w=1.5u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -73,7 +73,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -70 120 0 0 {name=M2
 l=0.15u
-w=0.75u
+w=1.5uu
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -89,7 +89,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -70 40 0 0 {name=M4
 l=0.15u
-w=0.75u
+w=1.5u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -130,7 +130,7 @@ C {lab_pin.sym} 20 -40 2 1 {name=p12 sig_type=std_logic lab=ab}
 C {lab_pin.sym} -90 -40 2 1 {name=p13 sig_type=std_logic lab=bb}
 C {sg13g2_pr/sg13_lv_nmos.sym} -70 200 0 0 {name=M7
 l=0.15u
-w=3.0u
+w=1.5u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -138,7 +138,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 40 200 0 0 {name=M8
 l=0.15u
-w=3.0u
+w=1.5u
 ng=1
 m=1
 model=sg13_lv_nmos

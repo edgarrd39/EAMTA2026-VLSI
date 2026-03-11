@@ -45,7 +45,7 @@ value="
 * Circuit Parameters
 .param vdd = 1.2
 .param vss = 0.0
-.param Tclk = 10n
+.param Tclk = 30n
 .param Tffd = 85n
 .param Tclear = 200n
 .options TEMP = 27.0
@@ -55,9 +55,10 @@ value="
 .save all
 *Simulations
 .control
-tran 0.01u 300n
+tran 0.1u 300n
 setplot tran1
-plot v(d) v(clk)+1.2 v(clear)+2.4 v(vout)+3.6
+let prueba1=v(x1.p1)
+plot v(d) v(clk)+1.2 v(clear)+2.4 v(vout)+3.6 prueba1+5.8
 reset
 dc V6 0 1.2 0.01
 setplot dc
@@ -98,7 +99,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {lab_wire.sym} 80 190 0 0 {name=clk6 sig_type=std_logic lab=avss1p8
 }
-C {vsource.sym} 760 30 0 0 {name=V1 value="PULSE(\{vdd\} 0 0.0 1p 1p \{Tclear/4\} \{Tclear/2\}) DC 0 AC 0" savecurrent=false}
+C {vsource.sym} 760 30 0 0 {name=V1 value="PULSE(\{vdd\} \{0\} 100n 1p 1p ) DC 0 AC 0" savecurrent=false}
 C {lab_wire.sym} 760 90 0 0 {name=clk7 sig_type=std_logic lab=avss1p8
 }
 C {lab_wire.sym} 760 -30 0 0 {name=clk8 sig_type=std_logic lab=clear}

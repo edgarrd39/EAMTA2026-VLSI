@@ -6,7 +6,7 @@ V6 a avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
 C1 net1 avss1p8 1p
 x2 avdd1p8 net1 vout avss1p8 inverter
 V1 b avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/2} {Tclk}) DC 0 AC 0
-x1 avdd1p8 a b vout avss1p8 nor
+x1 avdd1p8 a vout b avss1p8 xor
 **** begin user architecture code
 
 
@@ -50,19 +50,25 @@ XM2 out in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 .ends
 
 
-* expanding   symbol:  blocks/norgate/schematic/nor.sym # of pins=5
-** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sym
-** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sch
-.subckt nor vdd a b out vss
+* expanding   symbol:  blocks/xorgate/schematic/xor.sym # of pins=5
+** sym_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/xorgate/schematic/xor.sym
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/xorgate/schematic/xor.sch
+.subckt xor vdd a out b vss
+*.iopin vss
 *.iopin vdd
 *.iopin a
-*.iopin vss
-*.iopin out
 *.iopin b
-XM1 net1 a vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
-XM2 out b vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
-XM3 out a vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
-XM4 out b net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+*.iopin out
+XM1 net1 bb vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out ab net2 vss sg13_lv_nmos w=1.5uu l=0.15u ng=1
+XM3 net1 ab vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM4 out a net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM5 out b net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM6 out a net3 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+x1 vdd ab a vss inverter
+x2 vdd bb b vss inverter
+XM7 net2 bb vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM8 net3 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 .ends
 
 .GLOBAL GND

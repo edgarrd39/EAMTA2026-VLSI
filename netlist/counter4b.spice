@@ -1,5 +1,5 @@
 ** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/counter4b/schematic/counter4b.sch
-**.subckt counter4b q1 clr ce clk q2 q3 q4
+**.subckt counter4b vdd vss q1 ce clr clk q2 q3 q4
 *.iopin ce
 *.iopin q1
 *.iopin q2
@@ -7,6 +7,8 @@
 *.iopin q4
 *.iopin clk
 *.iopin clr
+*.iopin vss
+*.iopin vdd
 x1 vdd ce net3 q1 vss andgate
 x2 vdd q1 net1 ce vss xor
 x3 q1 net8 net1 vss clk clr vdd dff
@@ -18,6 +20,10 @@ x8 vdd q3 net5 net4 vss xor
 x9 q3 net10 net5 vss clk clr vdd dff
 x11 vdd q4 net6 net7 vss xor
 x12 q4 net11 net6 vss clk clr vdd dff
+* noconn #net8
+* noconn #net9
+* noconn #net10
+* noconn #net11
 **.ends
 
 * expanding   symbol:  blocks/andgate/schematic/andgate.sym # of pins=5
@@ -43,16 +49,16 @@ x2 vdd out net1 vss inverter
 *.iopin a
 *.iopin b
 *.iopin out
-XM1 net1 bb vdd vdd sg13_lv_pmos w=0.75u l=0.15u ng=1
-XM2 out ab net2 vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM1 net1 bb vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out ab net2 vss sg13_lv_nmos w=1.5uu l=0.15u ng=1
 XM3 net1 ab vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
-XM4 out a net1 vdd sg13_lv_pmos w=0.75u l=0.15u ng=1
+XM4 out a net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 XM5 out b net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 XM6 out a net3 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 x1 vdd ab a vss inverter
 x2 vdd bb b vss inverter
-XM7 net2 bb vss vss sg13_lv_nmos w=3.0u l=0.15u ng=1
-XM8 net3 b vss vss sg13_lv_nmos w=3.0u l=0.15u ng=1
+XM7 net2 bb vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM8 net3 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 .ends
 
 
@@ -88,10 +94,10 @@ x9 vdd qb q vss inverter
 *.iopin vss
 *.iopin out
 *.iopin b
-XM1 out a vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
-XM2 out a net1 vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM3 net1 b vss vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM4 out b vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+XM1 out a vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out a net1 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM3 net1 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM4 out b vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 .ends
 
 

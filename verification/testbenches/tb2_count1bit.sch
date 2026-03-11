@@ -11,8 +11,6 @@ N 255 -60 255 -30 {lab=avss1p8}
 N 255 30 255 60 {lab=GND}
 N 445 -60 445 -30 {lab=clk_sig}
 N 445 30 445 60 {lab=avss1p8}
-N -120 -70 -100 -70 {lab=avdd1p8}
-N -120 -10 -100 -10 {lab=avss1p8}
 N -120 40 -100 40 {lab=clk_sig}
 N 0 -130 0 -100 {lab=avdd1p8}
 N 0 80 -0 110 {lab=avss1p8}
@@ -25,12 +23,20 @@ N 140 -65 140 -50 {lab=d}
 N 110 -50 140 -50 {lab=d}
 N 125 15 125 30 {lab=sum}
 N 110 30 125 30 {lab=sum}
+N 455 110 455 140 {lab=in}
+N 455 200 455 230 {lab=avss1p8}
+N -135 -80 -135 -70 {lab=in}
+N -135 -70 -100 -70 {lab=in}
+N 455 260 455 290 {lab=clr_in}
+N 455 350 455 380 {lab=avss1p8}
+N -130 -10 -100 -10 {lab=clr_in}
 C {netlist_not_shown.sym} -345 -50 0 0 {name=SIMULATION only_toplevel=false
 value="
 * Circuit Parameters
 .param vdd = 1.2
 .param vss = 0.0
-.param Tclk = 10n
+.param Tclk = 100n
+.param Tin = 1000n
 .options TEMP = 27.0
 * Include Models - IHP SG13G2
 .lib cornerMOSlv.lib mos_tt
@@ -38,9 +44,9 @@ value="
 .save all
 *Simulations
 .control
-tran 0.01u 100n
+tran 0.1u 1000n
 setplot tran1
-plot v(clk_sig) v(sum)+1.2 v(d)+2.4
+plot v(clk_sig) v(sum)+1.2 v(d)+2.4 v(in)+3.6
 reset
 dc V6 0 1.2 0.01
 setplot dc
@@ -66,11 +72,7 @@ C {lab_wire.sym} 445 60 0 0 {name=p9 sig_type=std_logic lab=avss1p8
 }
 C {lab_wire.sym} 445 -60 0 0 {name=p10 sig_type=std_logic lab=clk_sig}
 C {gnd.sym} 255 60 0 0 {name=l1 lab=GND}
-C {lab_wire.sym} -120 -70 2 1 {name=p12 sig_type=std_logic lab=avdd1p8
-}
 C {lab_wire.sym} -120 40 2 1 {name=p13 sig_type=std_logic lab=clk_sig}
-C {lab_wire.sym} -120 -10 2 1 {name=p14 sig_type=std_logic lab=avss1p8
-}
 C {blocks/count1bit/schematic/count1bit.sym} 0 -10 0 0 {name=x1}
 C {lab_wire.sym} 125 15 1 0 {name=p4 sig_type=std_logic lab=sum
 }
@@ -88,3 +90,15 @@ footprint=1206
 device="ceramic capacitor"}
 C {lab_wire.sym} 140 -65 1 0 {name=p5 sig_type=std_logic lab=d
 }
+C {vsource.sym} 455 170 0 0 {name=V1 value="PULSE(\{0\} \{vdd\} 85n 1p 1p ) DC 0 AC 0" savecurrent=false}
+C {lab_wire.sym} 455 230 0 0 {name=p11 sig_type=std_logic lab=avss1p8
+}
+C {lab_wire.sym} 455 110 0 0 {name=p15 sig_type=std_logic lab=in}
+C {lab_wire.sym} -135 -80 0 0 {name=p12 sig_type=std_logic lab=in}
+C {vsource.sym} 455 320 0 0 {name=V2 value="PULSE(\{vdd\} \{0\} 65n 1p 1p ) DC 0 AC 0" savecurrent=false}
+C {lab_wire.sym} 455 380 0 0 {name=p16 sig_type=std_logic lab=avss1p8
+value="PULSE(\{0\} \{vdd\} 65n 1p 1p ) DC 0 AC 0"}
+C {lab_wire.sym} 455 260 0 0 {name=p17 sig_type=std_logic lab=clr_in
+value="PULSE(\{0\} \{vdd\} 65n 1p 1p ) DC 0 AC 0"}
+C {lab_wire.sym} -130 -10 0 0 {name=p14 sig_type=std_logic lab=clr_in
+value="PULSE(\{0\} \{vdd\} 65n 1p 1p ) DC 0 AC 0"}

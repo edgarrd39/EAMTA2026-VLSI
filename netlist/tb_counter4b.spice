@@ -1,17 +1,20 @@
-** sch_path: /home/eamtastudent/EAMTA2026-VLSI/verification/testbenches/count4bits/tb_count4bits.sch
-**.subckt tb_count4bits
-x1 avdd1p8 avss1p8 q1 clk1 avss1p8 clk q2 q3 q4 counter4b
+** sch_path: /home/eamtastudent/EAMTA2026-VLSI/verification/testbenches/counter4b_ed/tb_counter4b.sch
+**.subckt tb_counter4b
+x1 avdd1p8 avss1p8 q1 avdd1p8 avdd1p8 clk q2 q3 q4 counter4b
 V4 avss1p8 GND DC{vss}
 V10 clk avss1p8 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
 V5 avdd1p8 avss1p8 DC{vdd}
-V1 clk1 net1 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
+C1 q1 avss1p8 100f
+C2 q2 avss1p8 100f
+C3 q3 avss1p8 100f
+C4 q4 avss1p8 100f
 **** begin user architecture code
 
 
 * Circuit Parameters
 .param vdd = 1.2
 .param vss = 0.0
-.param Tclk = 1000n
+.param Tclk = 10n
 .param Tffd = 85n
 .param Tclear = 165n
 .options TEMP = 27.0
@@ -21,7 +24,7 @@ V1 clk1 net1 PULSE({vdd} 0 0.0 1p 1p {Tclk/4} {Tclk/2}) DC 0 AC 0
 .save all
 *Simulations
 .control
-tran 0.01u 20000n
+tran 0.01u 200n
 setplot tran1
 plot v(clk) v(q1)+2.4 v(q2)+3.6 v(q3)+4.8 v(q4)+6.0
 reset
@@ -112,13 +115,13 @@ XM8 net3 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 *.iopin vdd
 *.iopin vss
 x1 clk vss net1 d vdd clkb transmissiongate
-x2 vdd p1 clr net2 vss nor
+x2 vdd clr net2 net3 vss nor
 x3 vdd clkb clk vss inverter
-x4 clkb vss net1 net2 vdd clk transmissiongate
-x5 clkb vss net3 p1 vdd clk transmissiongate
-x6 clk vss qb net3 vdd clkb transmissiongate
-x7 vdd clr net3 q vss nor
-x8 vdd p1 net1 vss inverter
+x4 clk vss net3 net1 vdd clkb transmissiongate
+x5 clk vss net4 net2 vdd clkb transmissiongate
+x6 clk vss qb net4 vdd clkb transmissiongate
+x7 vdd net4 clr q vss nor
+x8 vss net2 net1 vss inverter
 x9 vdd qb q vss inverter
 .ends
 
@@ -172,14 +175,14 @@ XM0 d clk out vss sg13_lv_nmos w=0.75u l=0.15u ng=1
 ** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sch
 .subckt nor vdd a b out vss
 *.iopin vdd
-*.iopin b
+*.iopin a
 *.iopin vss
 *.iopin out
-*.iopin a
-XM1 net1 b vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+*.iopin b
+XM1 net1 a vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 XM2 out b vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
 XM3 out a vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
-XM4 out a net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+XM4 out b net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 .ends
 
 .GLOBAL GND
