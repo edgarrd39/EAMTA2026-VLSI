@@ -83,16 +83,16 @@ x2 vdd out net1 vss inverter
 *.iopin a
 *.iopin b
 *.iopin out
-XM1 net1 bb vdd vdd sg13_lv_pmos w=0.75u l=0.15u ng=1
-XM2 out ab net2 vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+XM1 net1 bb vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out ab net2 vss sg13_lv_nmos w=1.5uu l=0.15u ng=1
 XM3 net1 ab vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
-XM4 out a net1 vdd sg13_lv_pmos w=0.75u l=0.15u ng=1
+XM4 out a net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 XM5 out b net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 XM6 out a net3 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 x1 vdd ab a vss inverter
 x2 vdd bb b vss inverter
-XM7 net2 bb vss vss sg13_lv_nmos w=3.0u l=0.15u ng=1
-XM8 net3 b vss vss sg13_lv_nmos w=3.0u l=0.15u ng=1
+XM7 net2 bb vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM8 net3 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
 .ends
 
 
@@ -108,13 +108,13 @@ XM8 net3 b vss vss sg13_lv_nmos w=3.0u l=0.15u ng=1
 *.iopin vdd
 *.iopin vss
 x1 clk vss net1 d vdd clkb transmissiongate
-x2 vdd clr net2 net3 vss nor
+x2 vdd p1 clr net2 vss nor
 x3 vdd clkb clk vss inverter
-x4 clk vss net3 net1 vdd clkb transmissiongate
-x5 clk vss net4 net2 vdd clkb transmissiongate
-x6 clk vss qb net4 vdd clkb transmissiongate
-x7 vdd net4 clr q vss nor
-x8 vss net2 net1 vss inverter
+x4 clkb vss net1 net2 vdd clk transmissiongate
+x5 clkb vss net3 p1 vdd clk transmissiongate
+x6 clk vss qb net3 vdd clkb transmissiongate
+x7 vdd clr net3 q vss nor
+x8 vdd p1 net1 vss inverter
 x9 vdd qb q vss inverter
 .ends
 
@@ -128,10 +128,10 @@ x9 vdd qb q vss inverter
 *.iopin vss
 *.iopin out
 *.iopin b
-XM1 out a vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
-XM2 out a net1 vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM3 net1 b vss vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM4 out b vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+XM1 out a vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out a net1 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM3 net1 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM4 out b vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 .ends
 
 
@@ -168,14 +168,14 @@ XM0 d clk out vss sg13_lv_nmos w=0.75u l=0.15u ng=1
 ** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sch
 .subckt nor vdd a b out vss
 *.iopin vdd
-*.iopin a
+*.iopin b
 *.iopin vss
 *.iopin out
-*.iopin b
-XM1 net1 a vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+*.iopin a
+XM1 net1 b vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 XM2 out b vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
 XM3 out a vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
-XM4 out b net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+XM4 out a net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 .ends
 
 .GLOBAL GND
