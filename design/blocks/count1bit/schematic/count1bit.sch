@@ -31,7 +31,7 @@ N 890 -630 920 -630 {lab=clr}
 N 1030 -540 1030 -520 {lab=vss}
 N 500 -420 640 -420 {lab=sout}
 N 1200 -680 1240 -680 {lab=ce}
-N 1130 -580 1160 -580 {lab=qb}
+N 1130 -580 1150 -580 {lab=#net3}
 C {blocks/andgate/schematic/andgate.sym} 500 -530 1 0 {name=x1}
 C {blocks/xorgate/schematic/xor.sym} 750 -680 0 0 {name=x2}
 C {blocks/dff/schematic/dff.sym} 1070 -630 0 0 {name=x3}
@@ -49,4 +49,4 @@ C {lab_pin.sym} 750 -580 1 1 {name=p11 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 390 -520 0 0 {name=p12 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 610 -520 0 1 {name=p13 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} 1030 -520 1 1 {name=p14 sig_type=std_logic lab=vss}
-C {iopin.sym} 1160 -580 0 0 {name=p15 lab=qb}
+C {noconn.sym} 1150 -580 0 1 {name=l1}
