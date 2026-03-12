@@ -1,12 +1,6 @@
 ** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/transmissiongate/schematic/transmissiongate.sch
-**.subckt transmissiongate vss vdd out d clk' clk
-*.iopin out
-*.iopin d
-*.iopin clk'
-*.iopin clk
-*.iopin vdd
-*.iopin vss
-XM1 out clk' d vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
-XM0 out clk d vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-**.ends
-.end
+.subckt transmissiongate clk vss out d vdd clkb
+*.PININFO out:B d:B clkb:B clk:B vdd:B vss:B
+M1 out clkb d vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+M0 d clk out vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+.ends
