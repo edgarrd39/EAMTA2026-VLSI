@@ -1,13 +1,13 @@
 ** sch_path: /home/eamtastudent/EAMTA2026-VLSI/design/blocks/norgate/schematic/nor.sch
 **.subckt nor vdd a b out vss
 *.iopin vdd
-*.iopin a
+*.iopin b
 *.iopin vss
 *.iopin out
-*.iopin b
-XM1 net1 a vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+*.iopin a
+XM1 net1 b vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 XM2 out b vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
 XM3 out a vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
-XM4 out b net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+XM4 out a net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
 **.ends
 .end
