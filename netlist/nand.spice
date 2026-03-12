@@ -5,9 +5,9 @@
 *.iopin vss
 *.iopin out
 *.iopin b
-XM1 out a vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
-XM2 out a net1 vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM3 net1 b vss vss sg13_lv_nmos w=0.15u l=0.13u ng=1
-XM4 out b vdd vdd sg13_lv_pmos w=0.15u l=0.13u ng=1
+XM1 out a vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+XM2 out a net1 vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM3 net1 b vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1
+XM4 out b vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
 **.ends
 .end

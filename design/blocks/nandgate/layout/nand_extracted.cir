@@ -1,0 +1,12 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 12/03/2026 04:06
+
+.SUBCKT nand
+M$1 \$1 \$5 \$2 \$1 sg13_lv_nmos L=0.15u W=1.5u AS=0.51p AD=0.285p PS=3.68u
++ PD=1.88u
+M$2 \$2 \$6 \$3 \$1 sg13_lv_nmos L=0.15u W=1.5u AS=0.285p AD=0.51p PS=1.88u
++ PD=3.68u
+M$3 \$4 \$5 \$3 \$4 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.285p PS=3.68u
++ PD=1.88u
+M$4 \$3 \$6 \$4 \$4 sg13_lv_pmos L=0.15u W=1.5u AS=0.285p AD=0.51p PS=1.88u
++ PD=3.68u
+.ENDS nand
