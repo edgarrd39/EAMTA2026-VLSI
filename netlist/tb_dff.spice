@@ -53,7 +53,7 @@ write dcsweep.raw
 *.iopin vdd
 *.iopin vss
 x1 clk vss net1 d vdd clkb transmissiongate
-x2 vdd p1 clr net2 vss nor
+x2 vdd clr p1 net2 vss nor
 x3 vdd clkb clk vss inverter
 x4 clkb vss net1 net2 vdd clk transmissiongate
 x5 clkb vss net3 p1 vdd clk transmissiongate

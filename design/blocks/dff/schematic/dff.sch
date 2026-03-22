@@ -17,7 +17,7 @@ N -580 -200 -570 -200 {lab=#net1}
 N -570 -230 -570 -200 {lab=#net1}
 N -570 -230 -480 -230 {lab=#net1}
 N -270 -230 -230 -230 {lab=p1}
-N -300 70 -270 70 {lab=clr}
+N -300 160 -270 160 {lab=clr}
 N -580 -200 -580 -110 {lab=#net1}
 N -640 -200 -580 -200 {lab=#net1}
 N -580 60 -580 120 {lab=#net2}
@@ -64,12 +64,9 @@ N 170 -40 200 -40 {lab=vss}
 N -380 20 -380 40 {lab=vss}
 N -970 140 -970 160 {lab=vss}
 N -970 50 -970 80 {lab=vdd}
-N -430 -290 -430 -260 {lab=vss}
-N -270 -230 -270 -0 {lab=p1}
+N -430 -290 -430 -260 {lab=vdd}
+N -270 -230 -270 70 {lab=p1}
 N -290 -230 -270 -230 {lab=p1}
-N -270 -0 -220 -0 {lab=p1}
-N -220 -0 -220 160 {lab=p1}
-N -300 160 -220 160 {lab=p1}
 N -0 -350 50 -350 {lab=#net3}
 N 50 -350 50 -260 {lab=#net3}
 N 50 -260 130 -260 {lab=#net3}
@@ -77,6 +74,7 @@ N -290 -240 -290 -230 {lab=p1}
 N -380 -230 -290 -230 {lab=p1}
 N -700 -40 -660 -40 {lab=vdd}
 N -510 -50 -470 -50 {lab=vss}
+N -300 70 -270 70 {lab=p1}
 C {blocks/transmissiongate/schematic/transmissiongate.sym} -660 -200 0 0 {name=x1}
 C {blocks/norgate/schematic/nor.sym} -380 120 2 0 {name=x2}
 C {blocks/inverter/schematic/inverter.sym} -1020 130 0 0 {name=x3}
@@ -96,7 +94,7 @@ C {iopin.sym} -860 -180 2 0 {name=p7 lab=d}
 C {iopin.sym} -1020 -40 2 0 {name=p8 lab=clk}
 C {lab_wire.sym} -980 0 2 0 {name=p9 sig_type=std_logic lab=clr}
 C {iopin.sym} -1020 0 2 0 {name=p10 lab=clr}
-C {lab_wire.sym} -270 70 2 0 {name=p11 sig_type=std_logic lab=clr}
+C {lab_wire.sym} -270 160 2 0 {name=p11 sig_type=std_logic lab=clr}
 C {lab_wire.sym} 70 -350 2 0 {name=p12 sig_type=std_logic lab=clr}
 C {iopin.sym} 580 -300 0 1 {name=p13 lab=q}
 C {iopin.sym} 590 -260 2 0 {name=p14 lab=qb}
