@@ -1,0 +1,48 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 23/03/2026 05:37
+
+.SUBCKT dff clr d clk
+M$1 \$1 \$8 \$2 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.1425p PS=2.18u
++ PD=1.13u
+M$2 \$2 clr \$1 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.1425p AD=0.255p PS=1.13u
++ PD=2.18u
+M$3 \$1 \$9 \$3 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.1425p PS=2.18u
++ PD=1.13u
+M$4 \$3 clr \$1 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.1425p AD=0.255p PS=1.13u
++ PD=2.18u
+M$5 \$1 clk \$5 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$6 d clk \$7 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$7 \$1 \$7 \$8 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$8 \$2 \$5 \$7 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$9 \$8 \$5 \$9 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$10 \$1 \$3 \$10 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$11 \$10 clk \$9 \$1 sg13_lv_nmos L=0.15u W=0.75u AS=0.255p AD=0.255p PS=2.18u
++ PD=2.18u
+M$12 \$25 clk \$5 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$13 d \$5 \$7 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$14 \$25 \$7 \$8 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$15 \$2 clk \$7 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$16 \$8 clk \$9 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$17 \$25 \$3 \$10 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$18 \$10 \$5 \$9 \$25 sg13_lv_pmos L=0.15u W=1.5u AS=0.51p AD=0.51p PS=3.68u
++ PD=3.68u
+M$19 \$25 \$8 \$23 \$25 sg13_lv_pmos L=0.15u W=3u AS=1.02p AD=0.57p PS=6.68u
++ PD=3.38u
+M$20 \$23 clr \$2 \$25 sg13_lv_pmos L=0.15u W=3u AS=0.57p AD=1.02p PS=3.38u
++ PD=6.68u
+M$21 \$25 \$9 \$24 \$25 sg13_lv_pmos L=0.15u W=3u AS=1.02p AD=0.57p PS=6.68u
++ PD=3.38u
+M$22 \$24 clr \$3 \$25 sg13_lv_pmos L=0.15u W=3u AS=0.57p AD=1.02p PS=3.38u
++ PD=6.68u
+.ENDS dff

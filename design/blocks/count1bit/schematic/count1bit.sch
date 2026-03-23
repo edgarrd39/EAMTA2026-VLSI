@@ -14,7 +14,7 @@ N 1200 -880 1200 -680 {lab=q}
 N 620 -880 1200 -880 {lab=q}
 N 620 -880 620 -730 {lab=q}
 N 620 -730 660 -730 {lab=q}
-N 540 -630 660 -630 {lab=ce}
+N 570 -630 660 -630 {lab=ce}
 N 540 -630 540 -610 {lab=ce}
 N 460 -730 460 -610 {lab=q}
 N 130 -900 180 -900 {lab=vdd}
@@ -31,13 +31,11 @@ N 500 -420 640 -420 {lab=sout}
 N 1200 -680 1240 -680 {lab=q}
 N 1130 -580 1150 -580 {lab=#net2}
 N 460 -730 620 -730 {lab=q}
-N 370 -730 420 -730 {lab=ce}
-N 420 -730 420 -630 {lab=ce}
-N 420 -630 540 -630 {lab=ce}
+N 570 -680 570 -630 {lab=ce}
+N 540 -630 570 -630 {lab=ce}
 C {blocks/andgate/schematic/andgate.sym} 500 -530 1 0 {name=x1}
-C {blocks/xorgate/schematic/xor.sym} 750 -680 0 0 {name=x2}
 C {blocks/dff/schematic/dff.sym} 1070 -630 0 0 {name=x3}
-C {iopin.sym} 370 -730 0 1 {name=p1 lab=ce}
+C {iopin.sym} 570 -680 0 1 {name=p1 lab=ce}
 C {iopin.sym} 890 -580 0 1 {name=p2 lab=clk}
 C {iopin.sym} 890 -630 0 1 {name=p3 lab=clr}
 C {iopin.sym} 640 -420 0 0 {name=p4 lab=sout}
@@ -52,3 +50,4 @@ C {lab_pin.sym} 390 -520 0 0 {name=p12 sig_type=std_logic lab=vss}
 C {lab_pin.sym} 610 -520 0 1 {name=p13 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} 1030 -520 1 1 {name=p14 sig_type=std_logic lab=vss}
 C {noconn.sym} 1150 -580 0 1 {name=l1}
+C {blocks/xorgate/schematic/xor.sym} 750 -680 0 0 {name=x2}
