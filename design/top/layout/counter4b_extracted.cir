@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 23/03/2026 19:36
+* Extracted by KLayout with SG13G2 LVS runset on : 26/03/2026 04:09
 
 .SUBCKT counter4b vss ce ce|sout ce|sout$1 ce|sout$2 q|q1 q|q4 d|out clr
 + d|out$1 d|out$2 d|out$3 clk q|q2 q|q3 vdd
