@@ -4,8 +4,8 @@ Repository containing the "Introduction to Very Large Scale Integration Design" 
 
 ## Integrantes:
 
-Díaz, Edgardo Rodrigo
-Juarez Palmieri, Pablo Antonio
+- Díaz, Edgardo Rodrigo
+- Juarez Palmieri, Pablo Antonio
 
 ## Getting Started
 
